@@ -19,8 +19,8 @@ namespace hobf
             }
 
             uint32_t x = 0;
-            while ((value & (1 << x)) == 0) {
-                x += 1;
+            while ((value & (1u << x)) == 0) {
+                ++x;
             }
             return x;
         }

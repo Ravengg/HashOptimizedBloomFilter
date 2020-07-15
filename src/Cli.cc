@@ -39,9 +39,9 @@ int main(int argc, char **argv)
     auto hashStart = vm["hash-start"].as<uint32_t>();
     auto fileName = vm["file-with-saved-data"].as<std::string>();
 
-    hobf::BloomFilter bf(vm["hash-size"].as<uint32_t>(), vm["hash-count"].as<uint32_t>(), vm["hash-start"].as<uint32_t>());
+    hobf::BloomFilter bf(hashSize, hashCount, hashStart);
 
-    std::ifstream dataStream(vm["file-with-saved-data"].as<std::string>(), std::ios::in);
+    std::ifstream dataStream(fileName, std::ios::in);
     if (!dataStream)
     {
         throw std::runtime_error("Could not open file with saved data '" + fileName + "'");
